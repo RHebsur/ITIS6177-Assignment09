@@ -11,7 +11,7 @@ app.get('/say', function(req,res) {
 	paramKeywordMessage = req.query.keyword;
 	axios.get('https://ho9dck7hc9.execute-api.us-east-1.amazonaws.com/default/myFunction?keyword='+paramKeywordMessage)
 	.then(response =>{
-			res.statusCode = 200;
+			res.statusCode = response.statusCode;
 			res.send(response.data);
 	})
 	.catch(err=>{
